@@ -133,5 +133,13 @@ public class User {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+
+	public Direction getDirection() {
+		return Direction;
+	}
+
+	public void setDirection(Direction direction) {
+		Direction = direction;
+	}
 	
 }
