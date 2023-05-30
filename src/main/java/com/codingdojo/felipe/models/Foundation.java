@@ -1,6 +1,7 @@
 package com.codingdojo.felipe.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -40,9 +41,9 @@ public class Foundation {
 	@Size(min=1, max=9)
 	private int rut;
 	
-	@NotNull(message="Phonenumber is obligatory")
+	@NotNull(message="Phone Number is obligatory")
 	@Size(min=1, max=9, message="Phone Number is not correct number of digits ")
-	private int phonenumber;
+	private int phoneNumber;
 	
 	@NotEmpty(message="Password is obligatory")
 	@Size(min=6, message="Password must be at least 6 characters")
@@ -63,9 +64,7 @@ public class Foundation {
 	private Direction direction;
 	
 	@OneToMany(fetch=FetchType.LAZY)
-	@JoinColumn(name="pet_id")
-	
-	private Pet pet;
+	private List<Pet> petList;
 
 	public Foundation() {
 	}
@@ -126,12 +125,12 @@ public class Foundation {
 		this.rut = rut;
 	}
 
-	public int getPhonenumber() {
-		return phonenumber;
+	public int getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhonenumber(int phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getPassword() {
@@ -160,13 +159,12 @@ public class Foundation {
 		this.direction = direction;
 	}
 
-	public Pet getPet() {
-		return pet;
+	public List<Pet> getPetList() {
+		return petList;
 	}
 
-	public void setPet(Pet pet) {
-		this.pet = pet;
+	public void setPetList(List<Pet> petList) {
+		this.petList = petList;
 	}
-	
 	
 }

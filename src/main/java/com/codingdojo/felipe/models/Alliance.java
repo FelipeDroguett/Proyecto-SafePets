@@ -26,12 +26,15 @@ public class Alliance {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message="First name is obligatory")
+	@NotEmpty(message="Name is obligatory")
 	private String firstName;
 	
 	@NotEmpty(message="Email is obligatory")
 	@Email(message="Please enter a valid email")
 	private String email;
+	
+	@NotEmpty(message="Municipal License is obligatory")
+	private String municipalLicense;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")

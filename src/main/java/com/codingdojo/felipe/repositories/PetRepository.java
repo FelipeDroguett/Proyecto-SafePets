@@ -10,5 +10,5 @@ import com.codingdojo.felipe.models.Pet;
 @Repository
 public interface PetRepository extends CrudRepository<Pet, Long>{
 
-	List<Pet> findByAll();
+	List<Pet> findAll();
 }

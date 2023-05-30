@@ -46,12 +46,10 @@ public class Pet {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="foundation_id")
-	
 	private Foundation foundation;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="application_id")
-	
 	private Application application; 
 	
 	public Pet() {

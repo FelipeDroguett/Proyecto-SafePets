@@ -1,6 +1,7 @@
 package com.codingdojo.felipe.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,6 +32,9 @@ public class Application {
 	@NotEmpty(message="First name is obligatory")
 	private String firstName;
 	
+	@NotEmpty(message="Last name is obligatory")
+	private String lastName;
+	
 	@NotNull(message="Rut is obligatory")
 	@Size(min=1, max=9)
 	private int rut;
@@ -42,9 +46,9 @@ public class Application {
 	@Email(message="Please enter a valid email")
 	private String email;
 	
-	@NotNull(message="Phonenumber is obligatory")
+	@NotNull(message="Phone Number is obligatory")
 	@Size(min=1, max=9, message="Phone Number is not correct number of digits ")
-	private int phonenumber;
+	private int phoneNumber;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -54,9 +58,7 @@ public class Application {
 	private Date updatedAt;
 
 	@OneToMany(fetch=FetchType.LAZY)
-	@JoinColumn(name="pet_id")
-	
-	private Pet pet; 
+	private List<Pet> petList; 
 	
 	public Application() {
 	}
@@ -101,12 +103,12 @@ public class Application {
 		this.email = email;
 	}
 
-	public int getPhonenumber() {
-		return phonenumber;
+	public int getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhonenumber(int phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public Date getCreatedAt() {
@@ -135,12 +137,22 @@ public class Application {
 		this.updatedAt = new Date();
 	}
 
-	public Pet getPet() {
-		return pet;
+
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setPet(Pet pet) {
-		this.pet = pet;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
+
+	public List<Pet> getPetList() {
+		return petList;
+	}
+
+	public void setPetList(List<Pet> petList) {
+		this.petList = petList;
+	}
+	
 	
 }
