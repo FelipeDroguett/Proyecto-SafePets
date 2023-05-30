@@ -37,8 +37,11 @@ public class Foundation {
 	private String boss;
 	
 	@NotNull(message="Rut is obligatory")
+	@Size(min=1, max=9)
 	private int rut;
 	
+	@NotNull(message="Phonenumber is obligatory")
+	@Size(min=1, max=9, message="Phone Number is not correct number of digits ")
 	private int phonenumber;
 	
 	@NotEmpty(message="Password is obligatory")
@@ -148,4 +151,22 @@ public class Foundation {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+
+	public Direction getDirection() {
+		return direction;
+	}
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
+
+	public Pet getPet() {
+		return pet;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
+	
+	
 }

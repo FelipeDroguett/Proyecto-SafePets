@@ -95,4 +95,13 @@ public class Alliance {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+
+	public Direction getDirection() {
+		return direction;
+	}
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
+	
 }

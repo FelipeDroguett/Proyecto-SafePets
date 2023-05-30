@@ -145,5 +145,29 @@ public class Direction {
 		this.updatedAt = new Date();
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Foundation getFoundation() {
+		return foundation;
+	}
+
+	public void setFoundation(Foundation foundation) {
+		this.foundation = foundation;
+	}
+
+	public Alliance getAlliance() {
+		return alliance;
+	}
+
+	public void setAlliance(Alliance alliance) {
+		this.alliance = alliance;
+	}
+
 	
 }

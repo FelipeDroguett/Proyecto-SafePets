@@ -5,28 +5,45 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity 
 @Table(name="requests")
 public class Application {
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty(message="First name is obligatory")
 	private String firstName;
 	
+	@NotNull(message="Rut is obligatory")
+	@Size(min=1, max=9)
 	private int rut;
 	
+	@NotNull(message="Age is obligatory")
 	private int age;
 	
+	@NotEmpty(message="Email is obligatory")
+	@Email(message="Please enter a valid email")
 	private String email;
 	
+	@NotNull(message="Phonenumber is obligatory")
+	@Size(min=1, max=9, message="Phone Number is not correct number of digits ")
 	private int phonenumber;
 	
 	@Column(updatable=false)
@@ -116,6 +133,14 @@ public class Application {
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
+	}
+
+	public Pet getPet() {
+		return pet;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
 	}
 	
 }

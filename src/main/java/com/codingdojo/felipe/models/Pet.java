@@ -122,4 +122,22 @@ public class Pet {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+
+	public Foundation getFoundation() {
+		return foundation;
+	}
+
+	public void setFoundation(Foundation foundation) {
+		this.foundation = foundation;
+	}
+
+	public Application getApplication() {
+		return application;
+	}
+
+	public void setApplication(Application application) {
+		this.application = application;
+	}
+	
+	
 }
