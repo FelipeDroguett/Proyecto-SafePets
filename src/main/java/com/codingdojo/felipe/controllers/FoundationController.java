@@ -12,10 +12,10 @@ public class FoundationController {
 	@Autowired
 	private AppService service;
 	
-	@GetMapping("/Foundation")
+	@GetMapping("/foundation")
 	
 	private String foundation() {
 		
-		return "Foundation.jsp";
+		return "foundation.jsp";
 	}
 }
