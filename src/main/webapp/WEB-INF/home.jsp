@@ -16,6 +16,7 @@
     <div class="container">
         <h1>Login</h1>
         
+<<<<<<< HEAD
         <div class="col-6">
         <h2>Sing In</h2>
 				<form:form action="/register" method="post" modelAttribute="newUser">
@@ -64,6 +65,18 @@
     	<div>
         	<img src="<c:url value="img/patitaslogin.png" />" alt="">
     	</div>
+=======
+        <h1><c:out value="${user.firstName}" /></h1>
+        
+        <form action="/login" method="post">
+            <input type="text" name="email" placeholder="Username" required="required" />
+            <input type="password" name="password" placeholder="Password" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+        </form>
+    </div>
+    <div>
+        <img src="<c:url value="img/patitaslogin.png" />" alt="">
+>>>>>>> 9cb575106ed3c61fbc627042292852ccd2bd998e
     </div>
 </body>
 </html>
