@@ -27,13 +27,13 @@ public class UserController {
 	
 	public String Home() {
 		
-		return "home.jsp";
+		return "index.jsp";
 	}
 	
-	@GetMapping("/register")
-	public String Register(@ModelAttribute("user") User user) {
+	@GetMapping("/login")
+	public String Login(@ModelAttribute("user") User user) {
 		
-		return "register.jsp";
+		return "login.jsp";
 	}
 	
 	
@@ -43,7 +43,7 @@ public class UserController {
     	if(result.hasErrors()) {
 
         	session.setAttribute("errorRegister", "Ha ocurrido un error.");
-    		return "redirect:/register";
+    		return "redirect:/login";
     	}	
     	service.register(user, result);
     	session.setAttribute("successRegister", "Se ha registrado con éxito.");
@@ -55,10 +55,10 @@ public class UserController {
     public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session) {
     	User user = service.login(email, password);
     	if(user != null) {
-    		 session.setAttribute("user", user);
-    		 return "redirect:/"; 
+    		 session.setAttribute("u", user);
+    		 return "redirect:/login"; 
     	}
     	
-    	return "redirect:/";
+    	return "redirect:/login";
     }
 }
