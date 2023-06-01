@@ -31,9 +31,6 @@ public class User {
 	@NotEmpty(message="First name is obligatory")
 	private String firstName;
 	
-	@NotEmpty(message="Last name is obligatory")
-	private String lastName;
-	
 	@NotEmpty(message="Email is obligatory")
 	@Email(message="Please enter a valid email")
 	private String email;
@@ -74,14 +71,6 @@ public class User {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 
 	public String getEmail() {
