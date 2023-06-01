@@ -38,9 +38,9 @@ public class AppService {
 	public User register(User newUser, BindingResult result) {
 		
 		String email = newUser.getEmail();
-		User isUser = userRepo.findByEmail(email); 
+		User isUser = userRepo.findByEmail(email);
 		if(isUser != null) {
-
+			
 			result.rejectValue("email", "Unique", "The email is already in use");
 		}
 		
@@ -48,13 +48,15 @@ public class AppService {
 		String password = newUser.getPassword();
 		String confirm = newUser.getConfirm();
 		if(!password.equals(confirm)) { 
+
 			result.rejectValue("confirm", "Matches", "The passwords don't match");
 		}
 		
+
 		if(result.hasErrors()) {
 			return null;
 		} else {
-			
+
 			String pass_encript = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
 			newUser.setPassword(pass_encript);
 			return userRepo.save(newUser);
