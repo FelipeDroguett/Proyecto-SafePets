@@ -80,4 +80,8 @@ public class AppService {
 		
 	}
 	
+	public User findByEmail(String email) {
+        return userRepo.findByEmail(email);
+    }
+	
 }
