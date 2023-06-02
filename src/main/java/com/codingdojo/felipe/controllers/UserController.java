@@ -39,7 +39,7 @@ public class UserController {
 	@GetMapping("/")
 	
 
-	public String register(@ModelAttribute("newUser") User newUser) {
+	public String register() {
 
 		return "index.jsp";
 	}
@@ -56,7 +56,7 @@ public class UserController {
 		} else {
 
 			session.setAttribute("userInSession", newUser);
-			return "redirect:/foundation";
+			return "redirect:/";
 		}
 		
 	}
@@ -72,11 +72,11 @@ public class UserController {
 		if(userLogin == null) {
 
 			redirectAttributes.addFlashAttribute("error_login", "Email/Password incorrect");
-			return "redirect:/";
+			return "redirect:/login";
 		} else {
 
 			session.setAttribute("userInSession", userLogin);
-			return "redirect:/foundation";
+			return "redirect:/";
 		}
 	}
 
