@@ -80,4 +80,8 @@ public class AppService {
 		
 	}
 	
+	public User findUser(Long id) {
+		return userRepo.findById(id).orElse(null);
+	}
+	
 }

@@ -30,20 +30,24 @@
                                 <div class="card-front">
                                     <div class="center-wrap">
                                         <div class="section text-center">
-                                            <h4 class="mb-4 pb-3">Ingresar 
+                                        <h4 class="mb-4 pb-3 ">Ingresar 
                                             </h4>
+                                            <p class="text-danger">${error_login}</p>
+                                            
+                                        <form action="/login" method="post">
                                             <div class="form-group">
-                                                <input type="email" class="form-style" placeholder="Email">
+                                                <input type="text" class="form-style" placeholder="Email" name="email">
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" class="form-style" placeholder="Contraseña">
+                                                <input type="password" class="form-style" name="password" placeholder="Contraseña">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <a href="#" class="btn mt-4">Continuar</a>
+                                            <input type="submit" class="btn btn-info mt-4" value="Login">
                                             <p class="mb-0 mt-4 text-center"><a href="#"
                                                     class="link">Olvidaste tu
                                                     contraseña?</a></p>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
@@ -53,35 +57,29 @@
                                             <form:form action="/register" method="post" modelAttribute="newUser">
                                                 <h4 class="mb-3 pb-3">Registro</h4>
                                                 <div class="form-group">
-                                                    <!--Comentario <input type="text" class="form-style" placeholder="Nombre completo"
-                                                        name="name"> Comentario -->
+                                                    
                                                     <i class="input-icon uil uil-user"></i>
-                                                    <form:label path="firstName">First Name</form:label>
-													<form:input path="firstName"  class="form-control"/>
+                                                    
+													<form:input path="firstName"  class="form-style" placeholder="Nombre Completo"/>
 													<form:errors path="firstName" class="text-danger"/>
                                                 </div>
-                                                <div class="form-group mt-2">
-                                                   <!--Comentario <input type="email" class="form-style" placeholder="Email"
-                                                        name="email"> --Comentario -->
+                                                <div class="form-group mt-2">                
                                                     <i class="input-icon uil uil-at"></i>
-                                                    <form:label path="email">Email</form:label>
-													<form:input path="email" class="form-control"/>
+                                                    
+													<form:input path="email"  class="form-style" placeholder="Email"/>
 													<form:errors path="email" class="text-danger"/>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <!--Comentario <input type="password" class="form-style" placeholder="Contraseña"
-                                                        name="pass"> Comentario -->
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                     
-													<form:input path="password" type="password"  class="form-style"/>
+													<form:input path="password" type="password"  class="form-style" placeholder="Contraseña"/>
 													<form:errors path="password" class="text-danger"/>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <!--Comentario <input type="password" class="form-style" placeholder="Confirmar contraseña"
-                                                        name="confirm"> omentario -->
+
                                                     <i class="input-icon uil uil-lock-alt"></i>
-                                                    <form:label path="confirm">confirm</form:label>
-													<form:password path="confirm" class="form-control"/>
+                                                
+													<form:input path="confirm" type="password" class="form-style" placeholder="Confirme su Contraseña"/>
 													<form:errors path="confirm" class="text-danger"/>
                                                 </div>
                                                 <button type="submit" class="btn mt-4" name="send" value="Registrarme">Registrar</button>
