@@ -25,20 +25,19 @@ public class UserController {
 	
 	@GetMapping("/")
 	public String index() {
-
+    
 		return "index.jsp";
 	}
 	
-
 	@PostMapping("/register")
 	public String register(@Valid @ModelAttribute("newUser") User newUser,
-						   BindingResult result,
-						   HttpSession session,
-						   Model model) {
-		
+							BindingResult result,
+							HttpSession session
+							) {
 		service.register(newUser, result);
 		
 		if(result.hasErrors()) {
+
 			return "login.jsp";
 		} else {
 
@@ -54,7 +53,6 @@ public class UserController {
 						RedirectAttributes redirectAttributes,
 						HttpSession session) {
 		
-
 		User userLogin = service.login(email, password);
 		
 		if(userLogin == null) {
@@ -67,12 +65,11 @@ public class UserController {
 			return "redirect:/";
 		}
 	}
-	
-	@GetMapping("/register")
-	public String Register( @ModelAttribute("newUser") User newUser) {
 
+	@GetMapping("/register")
+	public String Register(@ModelAttribute("newUser") User newUser) {
 		return "login.jsp";
 	}
-	
+
 }
 

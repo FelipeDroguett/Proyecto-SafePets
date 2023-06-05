@@ -1,3 +1,6 @@
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,6 +83,10 @@
                             <div class="carousel-item" data-bs-interval="3000">
                                 <img src="assets/img/cerca-granjero-pasar-tiempo-perro.jpg" class="d-block w-100"
                                     alt="...">
+                                <img src="assets/img/hombre-entrenando-sus-perros-pitbull.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img src="assets/img/cerca-granjero-pasar-tiempo-perro.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                     </div>
