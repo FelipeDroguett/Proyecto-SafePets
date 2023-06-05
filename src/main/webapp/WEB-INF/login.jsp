@@ -1,22 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-            <!doctype html>
-            <html lang="en">
+<!doctype html>
+<html lang="en">
 
-            <head>
-                <title>Safe Pet</title>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                <link rel="shortcut icon" href="assets/img/animales.png" type="image/x-icon">
-                <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
-                <link rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-                <link rel="stylesheet" href="assets/css/login.css">
-            </head>
-
-            <body>
+<head>
+    <title>Safe Pet</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="assets/img/animales.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
                 <div class="section">
                     <div class="container">
                         <div class="row full-height justify-content-center">
@@ -95,7 +94,6 @@
                                                                 value="Registrarme">Registrar</button>
                                                         </form:form>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -105,6 +103,9 @@
                         </div>
                     </div>
                 </div>
-            </body>
+            </div>
+        </div>
+    </div>
+</body>
 
-            </html>
+</html>

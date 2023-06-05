@@ -9,22 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
 
 import com.codingdojo.felipe.models.User;
 import com.codingdojo.felipe.services.AppService;
@@ -37,10 +24,8 @@ public class UserController {
 	private AppService service;
 	
 	@GetMapping("/")
-	
-
-	public String register() {
-
+	public String index() {
+    
 		return "index.jsp";
 	}
 	
@@ -52,7 +37,8 @@ public class UserController {
 		service.register(newUser, result);
 		
 		if(result.hasErrors()) {
-			return "index.jsp";
+
+			return "login.jsp";
 		} else {
 
 			session.setAttribute("userInSession", newUser);
