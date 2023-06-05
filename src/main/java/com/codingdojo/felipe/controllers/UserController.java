@@ -52,7 +52,7 @@ public class UserController {
 		service.register(newUser, result);
 		
 		if(result.hasErrors()) {
-			return "home.jsp";
+			return "index.jsp";
 		} else {
 
 			session.setAttribute("userInSession", newUser);
@@ -81,7 +81,7 @@ public class UserController {
 	}
 
 	@GetMapping("/register")
-	public String Register(@ModelAttribute("user") User user) {
+	public String Register(@ModelAttribute("newUser") User newUser) {
 		return "login.jsp";
 	}
 
