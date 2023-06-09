@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="assets/css/login.css">
 </head>
 
-<body>
+<body style="background-color:#ccd3db;">
     <div class="section">
         <div class="container">
             <div class="row full-height justify-content-center">
@@ -26,7 +27,7 @@
                         <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
                         <label for="reg-log"></label>
                         <div class="card-3d-wrap mx-auto">
-                            <div class="card-3d-wrapper">
+                            <div class="card-3d-wrapper" style="height: 540px;">
                                 <div class="card-front">
                                     <div class="center-wrap">
                                         <div class="section text-center">
@@ -34,7 +35,7 @@
                                             </h4>
                                             <p class="text-danger">${error_login}</p>
                                             
-                                        <form action="/login" method="post">
+                                        <form action="/signIn" method="post">
                                             <div class="form-group">
                                                 <input type="text" class="form-style" placeholder="Email" name="email">
                                                 <i class="input-icon uil uil-at"></i>
@@ -54,13 +55,13 @@
                                 <div class="card-back">
                                     <div class="center-wrap">
                                         <div class="section text-center">
-                                            <form:form action="/register" method="post" modelAttribute="newUser">
+                                            <form:form action="/registry" method="post" modelAttribute="newUser">
                                                 <h4 class="mb-3 pb-3">Registro</h4>
                                                 <div class="form-group">
                                                     
                                                     <i class="input-icon uil uil-user"></i>
                                                     
-													<form:input path="firstName"  class="form-style" placeholder="Nombre Completo"/>
+													<form:input path="firstName"  class="form-style" placeholder="Nombre de la Veterinaria/Tienda de Mascota"/>
 													<form:errors path="firstName" class="text-danger"/>
                                                 </div>
                                                 <div class="form-group mt-2">                
@@ -69,6 +70,22 @@
 													<form:input path="email"  class="form-style" placeholder="Email"/>
 													<form:errors path="email" class="text-danger"/>
                                                 </div>
+                                      
+                                                <div class="form-group mt-2">                
+                                                    <i class="input-icon uil uil-at"></i>
+                                                    
+													<form:input path="phoneNumber" type="tel" name="telefono" class="form-style" pattern="[0-9]{9}" placeholder="Telefono" />
+													<form:errors path="phoneNumber" class="text-danger"/>
+                                                </div>
+                                                
+                                                <div class="form-group mt-2">                
+                                                    <i class="input-icon uil uil-at"></i>
+                                                    
+													<form:input path="municipalLicense" class="form-style" placeholder="Licencia Municipal"/>
+													<form:errors path="municipalLicense" class="text-danger"/>
+                                                </div>
+                                                
+                                                
                                                 <div class="form-group mt-2">
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                     
@@ -96,5 +113,4 @@
         </div>
     </div>
 </body>
-
 </html>

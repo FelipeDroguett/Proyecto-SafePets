@@ -26,23 +26,23 @@ public class Direction {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message="street is obligatory")
+	@NotEmpty(message="La calle es obligatoria")
 	@Size(min=2, max=100)
 	private String street;
 	
-	@NotEmpty(message="number is obligatory")
+	@NotEmpty(message="La numeracion es obligatoria")
 	@Size(min=2, max=100)
 	private String number;
 	
-	@NotEmpty(message="city is obligatory")
+	@NotEmpty(message="La ciudad es obligatoria")
 	@Size(min=2, max=100)
 	private String city;
 	
-	@NotEmpty(message="commune is obligatory")
+	@NotEmpty(message="La comuna es obligatoria")
 	@Size(min=2, max=100)
 	private String commune;
 	
-	@NotEmpty(message="region is obligatory")
+	@NotEmpty(message="La region es obligatoria")
 	@Size(min=2, max=100)
 	private String region;
 	
@@ -53,19 +53,21 @@ public class Direction {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 
-	
+	/*
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	private User user;
-	
+	*/
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="foundation_id")
 	private Foundation foundation;
 	
+
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="alliance_id")
 	private Alliance alliance;
+	
 	
 	public Direction() {
 	}
@@ -145,13 +147,13 @@ public class Direction {
 		this.updatedAt = new Date();
 	}
 
-	public User getUser() {
+	/*public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 
 	public Foundation getFoundation() {
 		return foundation;
@@ -169,5 +171,4 @@ public class Direction {
 		this.alliance = alliance;
 	}
 
-	
 }

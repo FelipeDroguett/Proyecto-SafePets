@@ -13,55 +13,46 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.codingdojo.felipe.models.Foundation;
-import com.codingdojo.felipe.models.User;
+import com.codingdojo.felipe.models.Alliance;
 import com.codingdojo.felipe.services.AppService;
 
-
 @Controller
-public class UserController {
+public class AllianceController {
 
 	@Autowired
 	private AppService service;
 	
-	@GetMapping("/")
-	public String index() {
-
-		return "index.jsp";
-	}
-	
-
-	@PostMapping("/register")
-	public String register(@Valid @ModelAttribute("newUser") Foundation newUser,
+	@PostMapping("/registry")
+	public String register(@Valid @ModelAttribute("newUser") Alliance newUser,
 						   BindingResult result,
 						   HttpSession session,
 						   Model model) {
 		
-		service.register(newUser, result);
+		service.registry(newUser, result);
 		
 		if(result.hasErrors()) {
-			return "login.jsp";
+			return "signin.jsp";
 		} else {
 
 			session.setAttribute("userInSession", newUser);
-			return "redirect:/Direction/newDirection";
+			return "redirect:/Direction/alliDirection";
 		}
 		
 	}
 	
-	@PostMapping("/login")
+	@PostMapping("/signin")
 	public String login(@RequestParam("email") String email,
 						@RequestParam("password") String password,
 						RedirectAttributes redirectAttributes,
 						HttpSession session) {
 		
 
-		Foundation userLogin = service.login(email, password);
+		Alliance userLogin = service.signIn(email, password);
 		
 		if(userLogin == null) {
 
 			redirectAttributes.addFlashAttribute("error_login", "Email/Contraseña incorrectos");
-			return "redirect:/login";
+			return "redirect:/signin";
 		} else {
 
 			session.setAttribute("userInSession", userLogin);
@@ -69,14 +60,12 @@ public class UserController {
 		}
 	}
 	
-	@GetMapping("/register")
-	public String Register( @ModelAttribute("newUser") Foundation newUser) {
+	@GetMapping("/registry")
+	public String joinregister(@ModelAttribute("newUser") Alliance newUser) {
 
-		System.out.println(service.nodirectionFoundation());
+		System.out.println("Entro a registry");
 		
-		return "login.jsp";
+		return "signin.jsp";
 	}
 	
 }
-
-

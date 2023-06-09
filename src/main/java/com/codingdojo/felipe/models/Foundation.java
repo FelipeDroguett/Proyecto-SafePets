@@ -10,16 +10,17 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,27 +32,25 @@ public class Foundation {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message="First name is obligatory")
+	@NotEmpty(message="El nombre de la fundacion es obligatorio")
 	private String firstName;
 	
-	@NotEmpty(message="Boss is obligatory")
-	private String boss;
-	
-	@NotNull(message="Rut is obligatory")
-	@Size(min=1, max=9)
-	private int rut;
-	
-	@NotNull(message="Phone Number is obligatory")
-	@Size(min=1, max=9, message="Phone Number is not correct number of digits ")
+	@NotNull(message="El numero de Telefono es obligatorio")
+
 	private int phoneNumber;
 	
-	@NotEmpty(message="Password is obligatory")
-	@Size(min=6, message="Password must be at least 6 characters")
+	@NotEmpty(message="La Contraseña es obligatorio")
+	@Size(min=6, message="La Contraseña debe tener al menos 6 caracteres")
 	private String password;
 	
-	@NotEmpty(message="Email is obligatory")
-	@Email(message="Please enter a valid email")
+	@NotEmpty(message="El correo electrónico es obligatorio")
+	@Email(message="Por favor introduzca una dirección de correo electrónico válida")
 	private String email;
+	
+	@Transient 
+	@NotEmpty(message="Confirmacion de Contraseña es obligatorio")
+	@Size(min=6, message="La Confirmacion de Contraseña debe tener al menos 6 caracteres")
+	private String confirm;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -101,13 +100,6 @@ public class Foundation {
 		this.updatedAt = updatedAt;
 	}
 
-	public String getBoss() {
-		return boss;
-	}
-
-	public void setBoss(String boss) {
-		this.boss = boss;
-	}
 
 	public String getEmail() {
 		return email;
@@ -117,13 +109,6 @@ public class Foundation {
 		this.email = email;
 	}
 
-	public int getRut() {
-		return rut;
-	}
-
-	public void setRut(int rut) {
-		this.rut = rut;
-	}
 
 	public int getPhoneNumber() {
 		return phoneNumber;
@@ -166,5 +151,15 @@ public class Foundation {
 	public void setPetList(List<Pet> petList) {
 		this.petList = petList;
 	}
+
+	public String getConfirm() {
+		return confirm;
+	}
+
+	public void setConfirm(String confirm) {
+		this.confirm = confirm;
+	}
+	
+	
 	
 }

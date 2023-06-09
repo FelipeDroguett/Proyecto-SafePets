@@ -28,20 +28,20 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message="First name is obligatory")
+	@NotEmpty(message="Nombre Completo es obligatorio")
 	private String firstName;
 	
-	@NotEmpty(message="Email is obligatory")
-	@Email(message="Please enter a valid email")
+	@NotEmpty(message="Email es obligatorio")
+	@Email(message="Por favor introduzca una dirección de correo electrónico válida")
 	private String email;
 	
-	@NotEmpty(message="Password is obligatory")
-	@Size(min=6, message="Password must be at least 6 characters")
+	@NotEmpty(message="Contraseña es obligatorio")
+	@Size(min=6, message="La contraseña debe tener al menos 6 caracteres")
 	private String password;
 	
 	@Transient 
-	@NotEmpty(message="Confirm is obligatory")
-	@Size(min=6, message="Confirm must be at least 6 characters")
+	@NotEmpty(message="Confirmacion de Contraseña es obligatorio")
+	@Size(min=6, message="La Confirmacion de Contraseña debe tener al menos 6 caracteres")
 	private String confirm;
 	
 	@Column(updatable=false)
@@ -50,10 +50,10 @@ public class User {
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
-	
+	/*
 	@OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private Direction Direction;
-	
+	/**/
 	public User() {
 	}
 
@@ -122,7 +122,7 @@ public class User {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-
+/*/
 	public Direction getDirection() {
 		return Direction;
 	}
@@ -130,5 +130,5 @@ public class User {
 	public void setDirection(Direction direction) {
 		Direction = direction;
 	}
-	
+	*/
 }
