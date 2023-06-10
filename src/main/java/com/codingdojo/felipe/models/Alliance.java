@@ -13,9 +13,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -26,15 +30,27 @@ public class Alliance {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message="Name is obligatory")
+	@NotEmpty(message="El nombre de su local es obligatorio")
 	private String firstName;
 	
-	@NotEmpty(message="Email is obligatory")
-	@Email(message="Please enter a valid email")
+	@NotEmpty(message="El correo electrónico es obligatorio")
+	@Email(message="Por favor introduzca una dirección de correo electrónico válida")
 	private String email;
 	
-	@NotEmpty(message="Municipal License is obligatory")
+	@NotEmpty(message="La licencia Municipal es obligatorio")
 	private String municipalLicense;
+	
+	@NotNull(message="El numero de Telefono es obligatorio")
+	private int phoneNumber;
+	
+	@NotEmpty(message="La Contraseña es obligatorio")
+	@Size(min=6, message="La Contraseña debe tener al menos 6 caracteres")
+	private String password;
+	
+	@Transient 
+	@NotEmpty(message="Confirmacion de Contraseña es obligatorio")
+	@Size(min=6, message="La Confirmacion de Contraseña debe tener al menos 6 caracteres")
+	private String confirm;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -106,5 +122,39 @@ public class Alliance {
 	public void setDirection(Direction direction) {
 		this.direction = direction;
 	}
+	
+
+	public String getMunicipalLicense() {
+		return municipalLicense;
+	}
+
+	public void setMunicipalLicense(String municipalLicense) {
+		this.municipalLicense = municipalLicense;
+	}
+
+	public int getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getConfirm() {
+		return confirm;
+	}
+
+	public void setConfirm(String confirm) {
+		this.confirm = confirm;
+	}
+	
 	
 }

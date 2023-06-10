@@ -1,10 +1,15 @@
 package com.codingdojo.felipe.services;
 
+import java.util.List;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import com.codingdojo.felipe.models.Alliance;
+import com.codingdojo.felipe.models.Direction;
+import com.codingdojo.felipe.models.Foundation;
 import com.codingdojo.felipe.models.User;
 import com.codingdojo.felipe.repositories.AllianceRepository;
 import com.codingdojo.felipe.repositories.ApplicationRepository;
@@ -35,13 +40,13 @@ public class AppService {
 	private UserRepository userRepo;
 	
 	
-	public User register(User newUser, BindingResult result) {
+	public Foundation register(Foundation newUser, BindingResult result) {
 		
 		String email = newUser.getEmail();
-		User isUser = userRepo.findByEmail(email);
+		Foundation isUser = foundationRepo.findByEmail(email);
 		if(isUser != null) {
 			
-			result.rejectValue("email", "Unique", "The email is already in use");
+			result.rejectValue("email", "Unique", "El correo electrónico ya está en uso.");
 		}
 		
 
@@ -49,7 +54,7 @@ public class AppService {
 		String confirm = newUser.getConfirm();
 		if(!password.equals(confirm)) { 
 
-			result.rejectValue("confirm", "Matches", "The passwords don't match");
+			result.rejectValue("confirm", "Matches", "Las contraseñas no coinciden");
 		}
 		
 
@@ -59,14 +64,14 @@ public class AppService {
 
 			String pass_encript = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
 			newUser.setPassword(pass_encript);
-			return userRepo.save(newUser);
+			return foundationRepo.save(newUser);
 		}	
 		
 	}
 	
-	public User login(String email, String password) {
+	public Foundation login(String email, String password) {
 		
-		User userExists = userRepo.findByEmail(email); 
+		Foundation userExists = foundationRepo.findByEmail(email); 
 		if(userExists == null) {
 			return null;
 		}
@@ -79,9 +84,95 @@ public class AppService {
 		}
 		
 	}
+
+	public Foundation findFoundation(Long id) {
+		return foundationRepo.findById(id).orElse(null);
+	}
+
+	public User findByEmail(String email) {
+        return userRepo.findByEmail(email);
+    }
+
+	public Direction saveDirection(Direction directionNew) {
+		return directionRepo.save(directionNew);
+	}
 	
+<<<<<<< HEAD
+	public List<Foundation> nodirectionFoundation(){
+		return foundationRepo.findByDirectionIdIsNull();
+	}
+	
+	public List<Foundation> findFoundations(){
+		return foundationRepo.findAll();
+	}
+	
+	
+	public List<Alliance> nodirectionAlliance(){
+		return allianceRepo.findByDirectionIdIsNull();
+	}
+	
+	public Alliance findAlliance(Long id) {
+		return allianceRepo.findById(id).orElse(null);
+	}
+	
+	public List<Alliance> findAlliance(){
+		return allianceRepo.findAll();
+	}
+	
+	
+	
+	
+	
+	
+	public Alliance registry(Alliance newUser, BindingResult result) {
+		
+		String email = newUser.getEmail();
+		Alliance isUser = allianceRepo.findByEmail(email);
+		if(isUser != null) {
+			
+			result.rejectValue("email", "Unique", "El correo electrónico ya está en uso.");
+		}
+		
+
+		String password = newUser.getPassword();
+		String confirm = newUser.getConfirm();
+		if(!password.equals(confirm)) { 
+
+			result.rejectValue("confirm", "Matches", "Las contraseñas no coinciden");
+		}
+		
+
+		if(result.hasErrors()) {
+			return null;
+		} else {
+
+			String pass_encript = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
+			newUser.setPassword(pass_encript);
+			return allianceRepo.save(newUser);
+		}	
+		
+	}
+	
+	public Alliance signIn(String email, String password) {
+		
+		Alliance userExists = allianceRepo.findByEmail(email); 
+		if(userExists == null) {
+			return null;
+		}
+		
+		
+		if(BCrypt.checkpw(password, userExists.getPassword())) {
+			return userExists;
+		} else {
+			return null;
+		}
+		
+	}
+		
+=======
 	public User findByEmail(String email) {
         return userRepo.findByEmail(email);
     }
 	
+>>>>>>> 05fc0fa3efe4ec7c4a908b323ed9101a60108f2b
 }
