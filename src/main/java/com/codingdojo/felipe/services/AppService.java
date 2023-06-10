@@ -97,6 +97,7 @@ public class AppService {
 		return directionRepo.save(directionNew);
 	}
 	
+<<<<<<< HEAD
 	public List<Foundation> nodirectionFoundation(){
 		return foundationRepo.findByDirectionIdIsNull();
 	}
@@ -168,4 +169,10 @@ public class AppService {
 		
 	}
 		
+=======
+	public User findByEmail(String email) {
+        return userRepo.findByEmail(email);
+    }
+	
+>>>>>>> 05fc0fa3efe4ec7c4a908b323ed9101a60108f2b
 }
