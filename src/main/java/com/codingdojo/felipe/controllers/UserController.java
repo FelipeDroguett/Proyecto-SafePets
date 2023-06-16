@@ -26,44 +26,25 @@ public class UserController {
 	
 	@GetMapping("/")
 	public String index() {
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 05fc0fa3efe4ec7c4a908b323ed9101a60108f2b
 		return "index.jsp";
 	}
 	
 
 	@PostMapping("/register")
-<<<<<<< HEAD
 	public String register(@Valid @ModelAttribute("newUser") Foundation newUser,
 						   BindingResult result,
 						   HttpSession session,
 						   Model model) {
-		
-		service.register(newUser, result);
-		
-		if(result.hasErrors()) {
-=======
-	public String register(@Valid @ModelAttribute("newUser") User newUser,
-							BindingResult result,
-							HttpSession session
-							) {
 		service.register(newUser, result);
 		
 		if(result.hasErrors()) {
 
->>>>>>> 05fc0fa3efe4ec7c4a908b323ed9101a60108f2b
 			return "login.jsp";
 		} else {
 
 			session.setAttribute("userInSession", newUser);
-<<<<<<< HEAD
+
 			return "redirect:/Direction/newDirection";
-=======
-			return "redirect:/";
->>>>>>> 05fc0fa3efe4ec7c4a908b323ed9101a60108f2b
 		}
 		
 	}
@@ -74,20 +55,12 @@ public class UserController {
 						RedirectAttributes redirectAttributes,
 						HttpSession session) {
 		
-<<<<<<< HEAD
-
 		Foundation userLogin = service.login(email, password);
 		
 		if(userLogin == null) {
 
 			redirectAttributes.addFlashAttribute("error_login", "Email/Contraseña incorrectos");
-=======
-		User userLogin = service.login(email, password);
-		
-		if(userLogin == null) {
 
-			redirectAttributes.addFlashAttribute("error_login", "Email/Password incorrect");
->>>>>>> 05fc0fa3efe4ec7c4a908b323ed9101a60108f2b
 			return "redirect:/login";
 		} else {
 
@@ -97,21 +70,11 @@ public class UserController {
 	}
 
 	@GetMapping("/register")
-<<<<<<< HEAD
 	public String Register( @ModelAttribute("newUser") Foundation newUser) {
 
 		System.out.println(service.nodirectionFoundation());
 		
 		return "login.jsp";
 	}
-	
 }
-
-=======
-	public String Register(@ModelAttribute("newUser") User newUser) {
-		return "login.jsp";
-	}
-
-}
->>>>>>> 05fc0fa3efe4ec7c4a908b323ed9101a60108f2b
 
