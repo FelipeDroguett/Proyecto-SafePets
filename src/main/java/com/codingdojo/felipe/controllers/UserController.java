@@ -76,10 +76,5 @@ public class UserController {
 		
 		return "login.jsp";
 	}
-	
-
-	public String Register(@ModelAttribute("newUser") User newUser) {
-		return "login.jsp";
-	}
 }
 
