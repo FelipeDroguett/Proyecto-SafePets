@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codingdojo.felipe.models.Foundation;
-import com.codingdojo.felipe.models.User;
 import com.codingdojo.felipe.services.AppService;
 
 
@@ -76,7 +75,6 @@ public class UserController {
 		
 		return "login.jsp";
 	}
-	
 	@GetMapping("/membresia")
 	public String membresia() {
 		

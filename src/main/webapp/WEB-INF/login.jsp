@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -60,11 +61,9 @@
                                 <div class="card-back">
                                     <div class="center-wrap">
                                         <div class="section text-center">
-                                            <form:form action="/register" method="post"
-                                                modelAttribute="newUser">
+                                          <form:form action="/register" method="post" modelAttribute="newUser">
                                                 <h4 class="mb-3 pb-3">Registro</h4>
                                                 <div class="form-group">
-
                                                     <i class="input-icon uil uil-user"></i>
 
                                                     <form:input path="firstName" class="form-style"
@@ -94,9 +93,36 @@
                                                         placeholder="Confirme su Contraseña" />
                                                     <form:errors path="confirm" class="text-danger" />
                                                 </div>
+                                                    <i class="input-icon uil uil-user"></i>
+
+                                                    <form:input path="firstName" class="form-style"
+                                                        placeholder="Nombre Completo" />
+                                                    <form:errors path="firstName" class="text-danger" />
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <i class="input-icon uil uil-at"></i>
+
+                                                    <form:input path="email" class="form-style"
+                                                        placeholder="Email" />
+                                                    <form:errors path="email" class="text-danger" />
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+
+                                                    <form:input path="password" type="password"
+                                                        class="form-style" placeholder="Contraseña" />
+                                                    <form:errors path="password" class="text-danger" />
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                    <form:input path="confirm" type="password"
+                                                        class="form-style"
+                                                        placeholder="Confirme su Contraseña" />
+                                                    <form:errors path="confirm" class="text-danger" />
+                                                </div>
                                                 <button type="submit" class="btn mt-4" name="send"
                                                     value="Registrarme">Registrar</button>
-                                            </form:form>
+                                           </form:form>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +132,5 @@
                 </div>
             </div>
         </div>
-    </div>
 </body>
-
 </html>

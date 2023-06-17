@@ -70,7 +70,6 @@
 													<form:input path="email"  class="form-style" placeholder="Email"/>
 													<form:errors path="email" class="text-danger"/>
                                                 </div>
-                                      
                                                 <div class="form-group mt-2">                
                                                     <i class="input-icon uil uil-at"></i>
                                                     
@@ -93,9 +92,7 @@
 													<form:errors path="password" class="text-danger"/>
                                                 </div>
                                                 <div class="form-group mt-2">
-
                                                     <i class="input-icon uil uil-lock-alt"></i>
-                                                
 													<form:input path="confirm" type="password" class="form-style" placeholder="Confirme su Contraseña"/>
 													<form:errors path="confirm" class="text-danger"/>
                                                 </div>
