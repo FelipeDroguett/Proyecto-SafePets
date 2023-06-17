@@ -99,7 +99,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #1e252d;
+		background-color: #0F192E;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -294,6 +294,7 @@ input, select, textarea {
 	a {
 		color: #212931;
 		border-bottom-color: rgba(33, 41, 49, 0.5);
+		border: none;
 	}
 
 		a:hover {
@@ -3233,8 +3234,8 @@ input, select, textarea {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-color: #88D498;
-			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg.jpg");
+			background-color: #DEF7DA;
+			background-image: url(""), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg.jpg");
 			background-size: auto,								auto,														100% auto;
 			background-position: center,								center,														top center;
 			background-repeat: repeat,								no-repeat,													no-repeat;
@@ -3333,6 +3334,7 @@ input, select, textarea {
 
 		#intro h1, #intro h2, #intro h3, #intro h4, #intro h5, #intro h6 {
 			color: #ffffff;
+			
 		}
 
 		#intro blockquote {
@@ -3615,7 +3617,7 @@ input, select, textarea {
 		-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
 		-ms-transition: -ms-transform 1s ease, opacity 1s ease;
 		transition: transform 1s ease, opacity 1s ease;
-		background: rgba(255, 255, 255, 0.175);
+		background: #1e252d;
 		height: 4rem;
 		line-height: 4rem;
 		margin: -4rem auto 0 auto;
@@ -3625,6 +3627,12 @@ input, select, textarea {
 		width: calc(100% - 4rem);
 		max-width: 72rem;
 		z-index: 2;
+	}
+
+	.nav2 {
+		margin: 0 !important;
+		width: 100%  !important;
+		max-width: none  !important;
 	}
 
 		#nav ul.divided li {
@@ -3961,6 +3969,11 @@ input, select, textarea {
 		width: calc(100% - 4rem);
 		max-width: 72rem;
 		z-index: 2;
+	}
+
+	.memb {
+		width: inherit !important; 
+		max-width: inherit !important;
 	}
 
 		#footer input, #footer select, #footer textarea {
