@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
@@ -86,9 +88,7 @@
                                                     <form:errors path="password" class="text-danger" />
                                                 </div>
                                                 <div class="form-group mt-2">
-
                                                     <i class="input-icon uil uil-lock-alt"></i>
-
                                                     <form:input path="confirm" type="password"
                                                         class="form-style"
                                                         placeholder="Confirme su Contraseña" />
@@ -108,5 +108,4 @@
         </div>
     </div>
 </body>
-
 </html>
