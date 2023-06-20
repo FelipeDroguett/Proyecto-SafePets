@@ -1,0 +1,68 @@
+:root {
+    --scrollcolor: #fff;
+    --scrollbackground: #141e27;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+body {
+    background-color: white !important;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-family: system-ui;
+    line-height: 1.1;
+    font-weight: 300;
+    color: #fff;
+    margin: 4rem auto 1rem;
+    width: 85%;
+    max-width: 1280px;
+}
+
+.title h1{
+    text-align: center;
+}
+
+.info{
+    color:#141e27;
+}
+#texto{
+    text-align: center;
+    font-size: medium;
+    position: absolute;
+    left: 20%;
+    margin-right: 50px;
+}
+/*.img-f{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80px;
+}
+
+#texto{
+    text-align: center;
+    font-size: medium;
+    position: absolute;
+    left: 20%;	
+    margin-right: 50px;
+}
+
+#footer .memb{
+    margin-top: auto;
+}
+
+
+
+
+style="height: 200px; width: 200px;"*/
